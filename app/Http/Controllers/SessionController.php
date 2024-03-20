@@ -15,8 +15,14 @@ class SessionController extends Controller{
             return back()->withErrors([
                 'message'=>'Correo Incorrecto Porfavor Verificar'
             ]);
+        }else {
+            if (auth()->user()->role =='admin') {
+                return redirect()->route('admin.index');
+            }else{
+                return redirect('/');
+            }
         }
-        return redirect('/');
+   
     }
 
     public function destroy(){

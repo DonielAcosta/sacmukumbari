@@ -1,3 +1,4 @@
+
 <?php
 
 use Illuminate\Database\Migrations\Migration;
@@ -15,7 +16,10 @@ class CreatePersonalAccessTokensTable extends Migration
     {
         Schema::create('personal_access_tokens', function (Blueprint $table) {
             $table->id();
-            $table->morphs('tokenable');
+            // Especificar explícitamente la longitud de las columnas tokenable_type y tokenable_id
+            $table->string('tokenable_type', 191);
+            $table->unsignedBigInteger('tokenable_id');
+            $table->index(['tokenable_type', 'tokenable_id']);
             $table->string('name');
             $table->string('token', 64)->unique();
             $table->text('abilities')->nullable();

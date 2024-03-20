@@ -3,7 +3,7 @@
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\RegisterController;
 use App\Http\Controllers\SessionController;
-
+use App\Http\Controllers\AdminController;
 
 Route::get('/', function () {
     return view('home');
@@ -21,5 +21,9 @@ Route::post('/login',[SessionController::class,'store'])->name('login.store');
 Route::get('/logout',[SessionController::class,'destroy'])
     ->middleware('auth')
     ->name('login.destroy');
+
+Route::get('/admin',[AdminController::class,'index'])
+        ->middleware('auth.admin')
+        ->name('admin.index');
 
 
