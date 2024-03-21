@@ -26,4 +26,7 @@ Route::get('/admin',[AdminController::class,'index'])
         ->middleware('auth.admin')
         ->name('admin.index');
 
-
+Route::get('/crear', function () {
+    return view('admin.crear');
+})->name('crear');
+        

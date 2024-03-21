@@ -4,6 +4,7 @@ namespace Database\Seeders;
 
 use Illuminate\Database\Seeder;
 use App\Models\User;
+use App\Models\Categoria;
 
 class DatabaseSeeder extends Seeder
 {
@@ -24,6 +25,13 @@ class DatabaseSeeder extends Seeder
         $user->role ='admin';
         
         $user->save();
+
+         // Crear 5 categorías
+         for ($i = 1; $i <= 6; $i++) {
+            $cate = new Categoria;
+            $cate->name ='unidad' . $i;
+            $cate->save();
+        }
     }
 
     // public function createAdmin(){
