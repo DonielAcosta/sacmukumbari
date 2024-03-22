@@ -7,6 +7,8 @@ use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Foundation\Auth\User as Authenticatable;
 use Illuminate\Notifications\Notifiable;
 use Laravel\Sanctum\HasApiTokens;
+use App\Models\Cocina;
+
 
 class User extends Authenticatable
 {
@@ -48,5 +50,12 @@ class User extends Authenticatable
     public function setPasswordAttribute($password){
         $this->attributes['password'] = bcrypt($password);
     }
-    
+
+    /**
+     * Obtiene las cocinas asociadas al usuario.
+     */
+    public function cocinas()
+    {
+        return $this->hasMany(Cocina::class);
+    }
 }
