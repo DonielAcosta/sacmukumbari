@@ -37,9 +37,24 @@
         .submenu.active ul {
             display: block; /* Mostramos el submenú cuando la opción está activa */
         }
+
+        /* Estilos del contenedor de la imagen */
+        .background-image {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%; /* Ajusta el ancho al 100% */
+            height: 100%; /* Ajusta la altura al 100% */
+            background-image: url('/images/mu.jpg'); /* Ruta de la imagen de fondo */
+            background-size: cover; /* Ajusta el tamaño de la imagen para cubrir todo el contenedor */
+            z-index: -1; /* Coloca la imagen detrás de otros elementos */
+        }
     </style>
 </head>
 <body>
+
+<!-- Contenedor de la imagen de fondo -->
+<div class="background-image"></div>
 
 <!-- Sidebar -->
 <div class="sidebar" id="sidebar">
@@ -50,7 +65,7 @@
                     <span>Main</span>
                 </li>
                 <li class="submenu">
-                      <a href="{{ route('crear') }}">Crear Nuevo</a>
+                    <a href="{{ route('crear') }}">Crear Nuevo</a>
                     <ul>
                         <li><a href="#">Panel 1</a></li>
                         <li><a href="#">Panel 2</a></li>
